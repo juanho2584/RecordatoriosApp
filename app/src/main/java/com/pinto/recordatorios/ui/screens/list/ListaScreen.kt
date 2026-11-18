@@ -40,7 +40,10 @@ fun ListaRecordatoriosScreen(
             when (val estado = uiState) {
                 is ListaUiState.Cargando -> CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
                 is ListaUiState.Vacio -> EstadoVacio(onCrear = onCrearClick)
-                is ListaUiState.Error -> EstadoError(mensaje = estado.mensaje, onReintentar = { viewModel.cargarRecordatorios() })
+                is ListaUiState.Error -> EstadoError(
+                    mensaje = estado.mensaje,
+                    onReintentar = { /* El reintento automático lo maneja Room */ }
+                )
                 is ListaUiState.Exito -> {
                     LazyColumn(
                         modifier = Modifier.fillMaxSize(),

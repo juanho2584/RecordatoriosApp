@@ -7,27 +7,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetalleRecordatorioScreen(
-    id: Long,
+    viewModel: DetalleViewModel,
     onVolver: () -> Unit
 ) {
-    // Como necesitamos pasarle el ID al ViewModel, usamos una Factory personalizada
-    val viewModel: DetalleViewModel = viewModel(
-        factory = object : ViewModelProvider.Factory {
-            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                @Suppress("UNCHECKED_CAST")
-                return DetalleViewModel(id) as T
-            }
-        }
-    )
-
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     Scaffold(

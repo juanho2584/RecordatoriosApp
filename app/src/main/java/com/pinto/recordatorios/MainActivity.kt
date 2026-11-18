@@ -9,10 +9,13 @@ import com.pinto.recordatorios.ui.navigation.AppNavigation
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Obtenemos el contenedor de dependencias desde la Application
+        val container = (application as RecordatoriosApplication).container
+
         setContent {
             MaterialTheme {
-                // Llamamos a nuestro grafo de navegación
-                AppNavigation()
+                AppNavigation(container = container)
             }
         }
     }

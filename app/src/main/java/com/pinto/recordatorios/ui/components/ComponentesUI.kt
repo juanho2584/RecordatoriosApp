@@ -11,8 +11,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.pinto.recordatorios.DatosSimulados
-import com.pinto.recordatorios.Recordatorio
+import com.pinto.recordatorios.domain.DatosSimulados
+import com.pinto.recordatorios.domain.Recordatorio
 
 // CONSIGNA 2: Componente reutilizable con modifier por defecto y lambda onClick
 @Composable
